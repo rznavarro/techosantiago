@@ -1,0 +1,6 @@
+{
+  "name": "Techo Santiago – Reparación de Techos",
+  "description": "Landing page de alta conversión para Techo Santiago, especialistas en reparación de filtraciones, techumbre, teja, zinc e impermeabilización en Santiago.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

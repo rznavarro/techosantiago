@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-petroleum: #16323F;
+  --color-petroleum-dark: #0F232D;
+  --color-petroleum-light: #204556;
+  --color-terracotta: #C8643B;
+  --color-terracotta-hover: #B5552E;
+  --color-warm-cream: #F6F3EE;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #20BA5A;
+  --color-body-text: #3D4F57;
+}
+
+:root {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Ken Burns slow zoom animation for hero */
+@keyframes kenburns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+.animate-ken-burns {
+  animation: kenburns 20s ease-in-out infinite alternate;
+}
+
+/* Subtle WhatsApp float pulse every 6s */
+@keyframes whatsappPulse {
+  0%, 85%, 100% {
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+    transform: scale(1);
+  }
+  92% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+    transform: scale(1.05);
+  }
+}
+
+.animate-whatsapp-pulse {
+  animation: whatsappPulse 6s ease-in-out infinite;
+}
+
+/* Button diagonal shine on hover */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.28);
+  transform: rotate(30deg);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+.btn-shine:hover::after {
+  transform: translate(450%, 20%) rotate(30deg);
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-ken-burns {
+    animation: none !important;
+    transform: none !important;
+  }
+  .animate-whatsapp-pulse {
+    animation: none !important;
+  }
+}
